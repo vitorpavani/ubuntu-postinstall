@@ -27,7 +27,6 @@ PROGRAMAS_PARA_INSTALAR=(
   thunderbird
   gnome-tweaks
   bleachbit
-
 )
 # ---------------------------------------------------------------------- #
 
