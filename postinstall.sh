@@ -10,7 +10,6 @@ DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 PROGRAMAS_PARA_INSTALAR=(
   snapd
   virtualbox
-  bitwarden
   conky 
   conky-all 
   conky-manager 
@@ -21,12 +20,17 @@ PROGRAMAS_PARA_INSTALAR=(
   remmina
   terminator
   timeshift
-  code
   vlc
   ttf-mscorefonts-installer
   thunderbird
   gnome-tweaks
   bleachbit
+  git
+  npm
+  zsh
+  powerline 
+  fonts-powerline
+  rclone
 )
 # ---------------------------------------------------------------------- #
 
@@ -75,10 +79,13 @@ sudo snap install spotify
 sudo snap install slack --classic
 sudo snap install skype --classic
 sudo snap install heroku --classic
+sudo snap install --classic code
 sudo snap install photogimp
 sudo snap install rambox
+sudo snap install bitwarden
+sudo snap install node --classic --channel=8
 # ---------------------------------------------------------------------- #
-
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 # ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
 ## Finalização, atualização e limpeza##
 sudo apt update && sudo apt dist-upgrade -y
