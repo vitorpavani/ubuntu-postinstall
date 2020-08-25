@@ -10,6 +10,24 @@ DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 PROGRAMAS_PARA_INSTALAR=(
   snapd
   virtualbox
+  bitwarden
+  conky 
+  conky-all 
+  conky-manager 
+  conky-manager-extra
+  dconf-editor
+  insomnia
+  obs-studio
+  remmina
+  terminator
+  timeshift
+  code
+  vlc
+  ttf-mscorefonts-installer
+  thunderbird
+  gnome-tweaks
+  bleachbit
+
 )
 # ---------------------------------------------------------------------- #
 
@@ -24,6 +42,8 @@ sudo apt update -y
 ## Adicionando repositórios de terceiros e suporte a Snap (Driver Logitech, Lutris e Drivers Nvidia)##
 wget -nc "$URL_WINE_KEY"
 sudo apt-key add winehq.key
+sudo add-apt-repository ppa:linuxmint-tr/araclar
+sudo add-apt-repository multiverse
 # ---------------------------------------------------------------------- #
 
 # ----------------------------- EXECUÇÃO ----------------------------- #
@@ -55,12 +75,15 @@ flatpak install flathub com.obsproject.Studio -y
 sudo snap install spotify
 sudo snap install slack --classic
 sudo snap install skype --classic
+sudo snap install heroku --classic
 sudo snap install photogimp
+sudo snap install rambox
 # ---------------------------------------------------------------------- #
 
 # ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
 ## Finalização, atualização e limpeza##
 sudo apt update && sudo apt dist-upgrade -y
+sudo ufw enable
 flatpak update
 sudo apt autoclean
 sudo apt autoremove -y
