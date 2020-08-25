@@ -15,7 +15,6 @@ PROGRAMAS_PARA_INSTALAR=(
   conky-manager 
   conky-manager-extra
   dconf-editor
-  insomnia
   obs-studio
   remmina
   terminator
@@ -84,6 +83,7 @@ sudo snap install --classic code
 sudo snap install photogimp
 sudo snap install rambox
 sudo snap install bitwarden
+sudo snap install insomnia
 sudo snap install node --classic --channel=8
 # ---------------------------------------------------------------------- #
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
