@@ -31,6 +31,7 @@ PROGRAMAS_PARA_INSTALAR=(
   powerline 
   fonts-powerline
   rclone
+  flatpak
 )
 # ---------------------------------------------------------------------- #
 
