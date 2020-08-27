@@ -31,6 +31,7 @@ SOFTWARES=(
   fonts-powerline
   rclone
   flatpak
+  gnome-software-plugin-flatpak
 )
 # ---------------------------------------------------------------------- #
 
@@ -44,6 +45,7 @@ wget -nc "$URL_WINE_KEY"
 sudo apt-key add winehq.key
 sudo add-apt-repository ppa:linuxmint-tr/araclar
 sudo add-apt-repository multiverse
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # ---------------------------------------------------------------------- #
 
 # ----------------------------- EXEC ----------------------------- #
