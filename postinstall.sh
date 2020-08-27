@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# ----------------------------- VARIÁVEIS ----------------------------- #
+# ----------------------------- VARIABLES ----------------------------- #
 
 URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
 URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
-DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
+DIRETORY_DOWNLOADS="$HOME/Downloads/programas"
 
-PROGRAMAS_PARA_INSTALAR=(
+SOFTWARES=(
   snapd
   virtualbox
   conky 
@@ -34,47 +34,44 @@ PROGRAMAS_PARA_INSTALAR=(
 )
 # ---------------------------------------------------------------------- #
 
-# ----------------------------- REQUISITOS ----------------------------- #
-## Removendo travas eventuais do apt ##
+# ----------------------------- Pre functions ----------------------------- #
+## Removing eventuals locks in the apt ##
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 
-## Atualizando o repositório ##
-sudo apt update -y
-
-## Adicionando repositórios de terceiros e suporte a Snap (Driver Logitech, Lutris e Drivers Nvidia)##
+## Adding third part repositos and Snap support (Driver Logitech, Lutris e Drivers Nvidia)##
 wget -nc "$URL_WINE_KEY"
 sudo apt-key add winehq.key
 sudo add-apt-repository ppa:linuxmint-tr/araclar
 sudo add-apt-repository multiverse
 # ---------------------------------------------------------------------- #
 
-# ----------------------------- EXECUÇÃO ----------------------------- #
-## Atualizando o repositório depois da adição de novos repositórios ##
+# ----------------------------- EXEC ----------------------------- #
+## Update the repos after adding the new repos ##
 sudo apt update -y
 
-## Download e instalaçao de programas externos ##
-mkdir "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
+## Download and install external softwares ##
+mkdir "$DIRETORY_DOWNLOADS"
+wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORY_DOWNLOADS"
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
-sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
+sudo dpkg -i $DIRETORY_DOWNLOADS/*.deb
 
 # Instalar programas no apt
-for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
-  if ! dpkg -l | grep -q $nome_do_programa; then # Só instala se já não estiver instalado
-    apt install "$nome_do_programa" -y
+for software in ${SOFTWARES[@]}; do
+  if ! dpkg -l | grep -q $software; then # Only install if its not installed yet
+    apt install "$software" -y
   else
-    echo "[INSTALADO] - $nome_do_programa"
+    echo "[INSTALADO] - $software"
   fi
 done
 
 sudo apt install --install-recommends winehq-stable wine-stable wine-stable-i386 wine-stable-amd64 -y
 
-## Instalando pacotes Flatpak ##
+## Install pacotes Flatpak ##
 flatpak install flathub com.obsproject.Studio -y
 
-## Instalando pacotes Snap ##
+## Installl pacotes Snap ##
 sudo snap install spotify
 sudo snap install slack --classic
 sudo snap install skype --classic
@@ -85,13 +82,18 @@ sudo snap install rambox
 sudo snap install bitwarden
 sudo snap install insomnia
 sudo snap install node --classic --channel=8
-# ---------------------------------------------------------------------- #
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-# ----------------------------- PÓS-INSTALAÇÃO ----------------------------- #
-## Finalização, atualização e limpeza##
+
+# ----------------------------- PÓS-INSTALL ----------------------------- #
+## Finalizingo, update and cleaning##
 sudo apt update && sudo apt dist-upgrade -y
-sudo ufw enable
 flatpak update
 sudo apt autoclean
 sudo apt autoremove -y
+# ---------------------------------------------------------------------- #
+# -------------- Configuring and customizing the software -------------- #
+
+sudo ufw enable #enable firewall
+
+# sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
 # ---------------------------------------------------------------------- #
