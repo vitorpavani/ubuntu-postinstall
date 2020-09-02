@@ -32,6 +32,7 @@ SOFTWARES=(
   rclone
   flatpak
   gnome-software-plugin-flatpak
+  cryptomator
 )
 # ---------------------------------------------------------------------- #
 
@@ -45,6 +46,7 @@ wget -nc "$URL_WINE_KEY"
 sudo apt-key add winehq.key
 sudo add-apt-repository ppa:linuxmint-tr/araclar
 sudo add-apt-repository multiverse
+sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # ---------------------------------------------------------------------- #
 
