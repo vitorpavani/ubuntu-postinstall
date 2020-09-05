@@ -33,6 +33,7 @@ SOFTWARES=(
   flatpak
   gnome-software-plugin-flatpak
   cryptomator
+  preload
 )
 # ---------------------------------------------------------------------- #
 
