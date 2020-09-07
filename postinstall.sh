@@ -24,7 +24,7 @@ SOFTWARES=(
   thunderbird
   gnome-tweaks
   bleachbit
-  git
+  git-all
   npm
   zsh
   powerline 
@@ -99,6 +99,6 @@ sudo apt autoremove -y
 
 sudo ufw enable #enable firewall
 
-# sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # ---------------------------------------------------------------------- #
