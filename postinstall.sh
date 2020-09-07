@@ -98,7 +98,6 @@ sudo apt autoremove -y
 # -------------- Configuring and customizing the software -------------- #
 
 sudo ufw enable #enable firewall
-
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # ---------------------------------------------------------------------- #
