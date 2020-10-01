@@ -34,6 +34,7 @@ SOFTWARES=(
   gnome-software-plugin-flatpak
   cryptomator
   preload
+  gufw
 )
 # ---------------------------------------------------------------------- #
 
