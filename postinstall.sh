@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # ----------------------------- VARIABLES ----------------------------- #
 
-URL_WINE_KEY="https://dl.winehq.org/wine-builds/winehq.key"
-URL_PPA_WINE="https://dl.winehq.org/wine-builds/ubuntu/"
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
 DIRETORY_DOWNLOADS="$HOME/Downloads/programas"
@@ -44,8 +42,6 @@ sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 
 ## Adding third part repositos and Snap support (Driver Logitech, Lutris e Drivers Nvidia)##
-wget -nc "$URL_WINE_KEY"
-sudo apt-key add winehq.key
 sudo add-apt-repository ppa:linuxmint-tr/araclar
 sudo add-apt-repository multiverse
 sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
@@ -71,8 +67,6 @@ for software in ${SOFTWARES[@]}; do
     echo "[INSTALADO] - $software"
   fi
 done
-
-sudo apt install --install-recommends winehq-stable wine-stable wine-stable-i386 wine-stable-amd64 -y
 
 ## Install pacotes Flatpak ##
 flatpak install flathub com.obsproject.Studio -y
